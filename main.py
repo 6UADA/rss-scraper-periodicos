@@ -15,7 +15,9 @@ from scraper_marca import scrape_marca
 from scraper_unanimo import scrape_unanimo
 from scraper_universal import scrape_universal
 from scraper_jornada import scrape_jornada
-from scraper_tvnotas import scrape_tvnotas
+from scraper_sdp import scrape_sdp
+from scraper_infobae import scrape_infobae
+
 
 # Diccionario con las URLs de cada sección por periódico
 SECTIONS = {
@@ -69,9 +71,14 @@ SECTIONS = {
         'mundo': "https://www.jornada.com.mx/categoria/mundo",
         'capital': "https://www.jornada.com.mx/categoria/capital"
     },
-    'tvnotas': {
-        'espectaculos': "https://www.tvnotas.com.mx/espectaculos"
-    }
+
+    'sdp': {
+        'espectaculos': "https://www.sdpnoticias.com/espectaculos/"
+    },
+
+    'infobae': {
+        'espectaculos': "https://www.infobae.com/teleshow/"
+    },  
 }
 
 def save_to_xml(data, folder_name, filename):
@@ -135,8 +142,11 @@ if __name__ == "__main__":
             elif site == 'jornada':
                 articles = scrape_jornada(url)
 
-            elif site == 'tvnotas':
-                articles = scrape_tvnotas(url)[:15]
+            elif site == 'sdp':
+                articles = scrape_sdp(url)[:20]
+
+            elif site == 'infobae':
+                articles = scrape_infobae(url)[:25] 
 
             if articles:
                 filename = f"{section}.xml"
