@@ -62,3 +62,15 @@ def clean_article_text(text):
         clean_lines.append(stripped_line)
 
     return "\n".join(clean_lines)
+
+def is_from_current_year(publish_date):
+    """
+    Verifica si una fecha corresponde al año actual (o es futura).
+    Útil para filtrar portadas que mezclan contenido viejo (2025) con nuevo (2026).
+    """
+    if not publish_date:
+        return True # Por defecto permitimos si no hay fecha, para no ser tan agresivos
+    
+    from datetime import datetime
+    now = datetime.now()
+    return publish_date.year >= now.year

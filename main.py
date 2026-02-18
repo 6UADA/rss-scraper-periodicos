@@ -22,7 +22,13 @@ from scraper_infobae import scrape_infobae
 # Diccionario con las URLs de cada sección por periódico
 SECTIONS = {
 
-'cronica': {
+    'excelsior': {
+        'mundo': "https://www.excelsior.com.mx/global",
+        'nacional': "https://www.excelsior.com.mx/nacional",
+        'espectaculos': "https://www.excelsior.com.mx/funcion"
+    },
+
+    'cronica': {
         'mundo': "https://www.cronica.com.mx/mundo/",
         'nacional': "https://www.cronica.com.mx/nacional/",
         'espectaculos': "https://www.cronica.com.mx/escenario/"
@@ -38,12 +44,6 @@ SECTIONS = {
         'mundo': "https://netnoticias.mx/internacional",
         'nacional': "https://netnoticias.mx/nacional",
         'espectaculos': "https://netnoticias.mx/espectaculos"
-    },
-
-    'excelsior': {
-        'mundo': "https://www.excelsior.com.mx/global",
-        'nacional': "https://www.excelsior.com.mx/nacional",
-        'espectaculos': "https://www.excelsior.com.mx/funcion"
     },
 
     'forbes': {
